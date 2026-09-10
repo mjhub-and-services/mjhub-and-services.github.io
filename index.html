@@ -1,26 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World | MJ Hub</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: sans-serif;
-      background-color: #f0f0f0;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #333;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MJ Hub — Websites, E-commerce, HR & AI Insights in Southampton</title>
+  <meta name="description" content="MJ Hub is a Southampton-based business consulting studio building bespoke websites and e-commerce platforms, hands-on HR consulting and platforms, financial guidance and budgeting, and AI-driven insights and proposals. Competitive rates, nothing due upfront, and ongoing support after launch." />
+  <link rel="canonical" href="https://www.mjhub.co.uk/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MJ Hub" />
+  <meta property="og:title" content="MJ Hub — Websites, E-commerce, HR & AI Insights in Southampton" />
+  <meta property="og:description" content="Bespoke websites, e-commerce platforms, HR consulting, financial guidance and AI-driven insights for founders — based in Southampton. Competitive rates, no upfront cost, ongoing support." />
+  <meta property="og:url" content="https://www.mjhub.co.uk/" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MJ Hub",
+    "url": "https://www.mjhub.co.uk/",
+    "description": "Business consulting studio building bespoke websites and e-commerce platforms, HR consulting and platforms, financial guidance and budgeting, and AI-driven insights and proposals for founders. Competitive rates, no upfront cost, ongoing support after launch.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Southampton"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Southampton",
+      "addressRegion": "Hampshire",
+      "addressCountry": "GB"
+    },
+    "founder": [
+      { "@type": "Person", "name": "Marcel Mulders" },
+      { "@type": "Person", "name": "Jessica Williams" }
+    ]
+  }
+  </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q24XN9K10S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q24XN9K10S');
+</script>
 <body>
-  <h1>Hello, World!</h1>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <img
+      class="hero__img"
+      src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1800&h=1200&fit=crop&auto=format"
+      alt="Minimal dark workspace"
+      loading="eager"
+    />
+    <div class="hero__scrim"></div>
+
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <span class="logo">MJ Hub</span>
+        <button type="button" class="btn-pill" data-open-modal>Start a project</button>
+      </div>
+    </div>
+
+    <div class="container hero__content">
+      <p class="eyebrow alt-font">Business Consulting Studio · Southampton</p>
+      <h1 class="hero__title">From idea
+to enterprise.</h1>
+      <p class="hero__subtitle alt-font">
+        We build websites and e-commerce platforms, provide hands-on HR consulting, and deliver AI-driven insights and proposals — everything a founder needs to launch and grow.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── INTRO STRIP ───────────────────────────────────────── -->
+  <section class="intro">
+    <div class="container intro__inner">
+      <div class="intro__grid">
+        <h2 class="intro__heading">Three pillars.<br />One cohesive practice.</h2>
+        <p class="intro__text alt-font">
+          Most consultancies specialise in one dimension — the website, the people, or the numbers.
+          We connect all three: bespoke digital platforms, hands-on HR support, and AI-driven insights — then stay engaged for the long run, building lasting connections rather than one-off projects.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOCUS AREAS ──────────────────────────────────────── -->
+  <section class="pillar">
+    <img
+      class="pillar__img"
+      src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&h=1200&fit=crop&auto=format"
+      alt="Dark modern architecture — structure and foundations"
+      loading="lazy"
+    />
+    <div class="pillar__scrim-v"></div>
+    <div class="pillar__scrim-h is-left"></div>
+    <div class="container pillar__content">
+      <div class="pillar__box">
+        <p class="pillar__num alt-font">01</p>
+        <h2 class="pillar__title">Websites &amp; E-commerce</h2>
+        <div class="pillar__tags">
+          <span class="tag alt-font">Bespoke Websites</span>
+          <span class="tag alt-font">Website Design</span>
+          <span class="tag alt-font">E-commerce Platforms</span>
+          <span class="tag alt-font">SBC Tech Store</span>
+          <span class="tag alt-font">Hosting Included</span>
+        </div>
+        <p class="pillar__desc alt-font">
+          From bespoke, made-to-order sites to fully customisable e-commerce platforms — including our own store for the latest single-board computer technology — we design, build, and host it all ourselves. No DIY builder, no Wix or WordPress upkeep — can any other agency guarantee that?
+        </p>
+      </div>
+    </div>
+    <div class="pillar__divider"></div>
+  </section>
+
+  <section class="pillar">
+    <img
+      class="pillar__img"
+      src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&h=1200&fit=crop&auto=format"
+      alt="Sleek modern office at night — distribution and reach"
+      loading="lazy"
+    />
+    <div class="pillar__scrim-v"></div>
+    <div class="pillar__scrim-h is-right"></div>
+    <div class="container pillar__content">
+      <div class="pillar__box is-right">
+        <p class="pillar__num alt-font">02</p>
+        <h2 class="pillar__title">HR &amp; Financial Guidance</h2>
+        <div class="pillar__tags">
+          <span class="tag alt-font">HR Advice &amp; Consulting</span>
+          <span class="tag alt-font">Custom HR Platforms</span>
+          <span class="tag alt-font">Financial Guidance &amp; Budgeting</span>
+        </div>
+        <p class="pillar__desc alt-font">
+          Hands-on HR consulting paired with a fully customisable HR platform, plus financial guidance and budgeting to keep the business on track — all built around how your business actually runs, not a one-size-fits-all template.
+        </p>
+      </div>
+    </div>
+    <div class="pillar__divider"></div>
+  </section>
+
+  <section class="pillar">
+    <img
+      class="pillar__img"
+      src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1800&h=1200&fit=crop&auto=format"
+      alt="Abstract dark gradient — upward momentum"
+      loading="lazy"
+    />
+    <div class="pillar__scrim-v"></div>
+    <div class="pillar__scrim-h is-left"></div>
+    <div class="container pillar__content">
+      <div class="pillar__box">
+        <p class="pillar__num alt-font">03</p>
+        <h2 class="pillar__title">Insights &amp; Proposals</h2>
+        <div class="pillar__tags">
+          <span class="tag alt-font">Business Formation &amp; Strategy</span>
+          <span class="tag alt-font">Business Proposal Generation</span>
+          <span class="tag alt-font">AI Growth Analytics</span>
+        </div>
+        <p class="pillar__desc alt-font">
+          We help shape your business from the ground up — taking you from idea to the functional daily running of a company. Then we put AI to work analysing your leads, sales, marketing, and people, turning fast, professional proposals and reporting into rapid, confident growth.
+        </p>
+      </div>
+    </div>
+    <div class="pillar__divider"></div>
+  </section>
+
+  <!-- ── FOUNDERS ─────────────────────────────────────────── -->
+  <section id="about" class="founders">
+    <div class="container founders__inner">
+      <p class="section-label alt-font">The founders</p>
+      <div class="founders__grid">
+        <div class="founder-card">
+          <div class="founder-card__avatar">
+            <img
+              src="assets/images/jessica-williams.png"
+              alt="Jessica Williams, Co-Founder"
+            />
+          </div>
+          <h3 class="founder-card__name">Jessica Williams</h3>
+          <p class="founder-card__role alt-font">Co-Founder &amp; Human Resources Management</p>
+          <p class="founder-card__bio alt-font">
+            Jessica leads on people and finance — offering hands-on HR advice and consulting backed by a fully customisable HR platform, plus financial guidance and budgeting to keep the business on track.
+          </p>
+        </div>
+        <div class="founder-card">
+          <div class="founder-card__avatar">
+            <img
+              src="assets/images/marcel-mulders.png"
+              alt="Marcel Mulders, Co-Founder"
+            />
+          </div>
+          <h3 class="founder-card__name">Marcel Mulders</h3>
+          <p class="founder-card__role alt-font">Co-Founder &amp; Website Development</p>
+          <p class="founder-card__bio alt-font">
+            Marcel leads on websites and e-commerce — from bespoke builds and website design to fully customisable e-commerce platforms, including MJ Hub's own store for single-board computer technology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUE STRIP ──────────────────────────────────────── -->
+  <section class="value-strip">
+    <div class="container value-strip__inner">
+      <div class="value-strip__grid">
+        <div class="value-item">
+          <p class="value-item__title">Southampton-based</p>
+          <p class="value-item__label alt-font">Working with founders and businesses across the South Coast.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-item__title">No cost upfront</p>
+          <p class="value-item__label alt-font">Competitive rates, with nothing due before we start.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-item__title">Ongoing support</p>
+          <p class="value-item__label alt-font">We stay engaged after launch — building a lasting connection.</p>
+        </div>
+        <div class="value-item">
+          <p class="value-item__title">Founder-led</p>
+          <p class="value-item__label alt-font">Direct access to both co-founders, every project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT CTA ──────────────────────────────────────── -->
+  <section id="contact" class="cta">
+    <img
+      class="cta__img"
+      src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&h=900&fit=crop&auto=format"
+      alt="Technology and ambition"
+      loading="lazy"
+    />
+    <div class="cta__scrim"></div>
+    <div class="cta__content">
+      <p class="eyebrow alt-font">Ready to begin</p>
+      <h2 class="cta__heading">Let's build
+something real.</h2>
+      <p class="cta__text alt-font">
+        Tell us where your business is and where you want it to go.
+        Competitive rates, nothing due upfront, and ongoing support after launch —
+        we respond within one business day.
+      </p>
+      <button type="button" class="btn-pill-lg" data-open-modal>
+        Start a project
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <p class="site-footer__brand">MJ Hub</p>
+        <p class="site-footer__tag alt-font">Business Consulting Studio · Southampton, UK</p>
+      </div>
+      <p class="site-footer__copy alt-font">© 2026 MJ Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ── CONTACT MODAL ────────────────────────────────────── -->
+  <div class="modal" id="contact-modal">
+    <div class="modal-backdrop" data-close-modal aria-hidden="true"></div>
+    <div class="modal-wrap" role="dialog" aria-modal="true" aria-label="Start a project">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <div>
+            <p class="modal-kicker alt-font">MJ Hub</p>
+            <h2 class="modal-title">Start a project</h2>
+          </div>
+          <button type="button" class="modal-close" data-close-modal aria-label="Close">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <form class="modal-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="field-name">Full name</label>
+              <input id="field-name" type="text" name="name" required placeholder="Jane Smith" />
+            </div>
+            <div class="form-field">
+              <label for="field-email">Email</label>
+              <input id="field-email" type="email" name="email" required placeholder="jane@company.com" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="field-company">Company / Venture</label>
+            <input id="field-company" type="text" name="company" placeholder="Acme Inc. (or leave blank if pre-launch)" />
+          </div>
+
+          <div class="form-field">
+            <label>Area of interest</label>
+            <div class="interest-group">
+              <button type="button" class="interest-chip">Websites &amp; E-commerce</button>
+              <button type="button" class="interest-chip">HR &amp; Financial Guidance</button>
+              <button type="button" class="interest-chip">Insights &amp; Proposals</button>
+              <button type="button" class="interest-chip">All of the above</button>
+            </div>
+            <input type="hidden" id="field-interest" name="interest" />
+          </div>
+
+          <div class="form-field">
+            <label for="field-message">Tell us about your project</label>
+            <textarea id="field-message" name="message" rows="3" required placeholder="Where are you now, and where do you want to go?"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Send request
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOAST ────────────────────────────────────────────── -->
+  <div class="toast" id="toast">
+    <div class="toast__card">
+      <div class="toast__icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21.801 10A10 10 0 1 1 17 3.335" />
+          <path d="m9 11 3 3L22 4" />
+        </svg>
+      </div>
+      <div>
+        <p class="toast__title">Contact request received</p>
+        <p class="toast__desc alt-font">We'll be in touch within one business day.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/main.js"></script>
 </body>
 </html>
