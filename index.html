@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -288,15 +289,26 @@ something real.</h2>
           </button>
         </div>
 
-        <form class="modal-form" id="contact-form">
+        <form class="modal-form" id="contact-form" novalidate>
           <div class="form-row">
             <div class="form-field">
-              <label for="field-name">Full name</label>
-              <input id="field-name" type="text" name="name" required placeholder="Jane Smith" />
+              <label for="field-first-name">First name</label>
+              <input id="field-first-name" type="text" name="first_name" placeholder="Jane" />
             </div>
             <div class="form-field">
+              <label for="field-last-name">Last name</label>
+              <input id="field-last-name" type="text" name="last_name" placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
               <label for="field-email">Email</label>
-              <input id="field-email" type="email" name="email" required placeholder="jane@company.com" />
+              <input id="field-email" type="email" name="email" placeholder="jane@company.com" />
+            </div>
+            <div class="form-field">
+              <label for="field-phone">Phone <span class="alt-font">(optional)</span></label>
+              <input id="field-phone" type="tel" name="phone" placeholder="07700 900000" />
             </div>
           </div>
 
@@ -308,21 +320,25 @@ something real.</h2>
           <div class="form-field">
             <label>Area of interest</label>
             <div class="interest-group">
-              <button type="button" class="interest-chip">Websites &amp; E-commerce</button>
-              <button type="button" class="interest-chip">HR &amp; Financial Guidance</button>
-              <button type="button" class="interest-chip">Insights &amp; Proposals</button>
-              <button type="button" class="interest-chip">All of the above</button>
+              <button type="button" class="interest-chip" data-enquiry-type="websites-ecommerce">Websites &amp; E-commerce</button>
+              <button type="button" class="interest-chip" data-enquiry-type="hr-financial-guidance">HR &amp; Financial Guidance</button>
+              <button type="button" class="interest-chip" data-enquiry-type="insights-proposals">Insights &amp; Proposals</button>
+              <button type="button" class="interest-chip" data-enquiry-type="general">All of the above</button>
             </div>
-            <input type="hidden" id="field-interest" name="interest" />
+            <input type="hidden" id="field-interest" name="interest" value="general" />
           </div>
 
           <div class="form-field">
             <label for="field-message">Tell us about your project</label>
-            <textarea id="field-message" name="message" rows="3" required placeholder="Where are you now, and where do you want to go?"></textarea>
+            <textarea id="field-message" name="message" rows="3" placeholder="Where are you now, and where do you want to go?"></textarea>
           </div>
 
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAEOzS56m0M5xjAFe" data-theme="dark" data-size="flexible"></div>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
           <button type="submit" class="submit-btn">
-            Send request
+            <span class="submit-btn__label">Send request</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
@@ -349,6 +365,8 @@ something real.</h2>
     </div>
   </div>
 
+  <script src="assets/config.js"></script>
+  <script src="assets/lead-submit.js"></script>
   <script src="assets/main.js"></script>
 </body>
 </html>

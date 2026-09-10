@@ -5,7 +5,7 @@
   var modalPanel = modal.querySelector(".modal-panel");
   var toast = document.getElementById("toast");
   var form = document.getElementById("contact-form");
-  var firstInput = document.getElementById("field-name");
+  var firstInput = document.getElementById("field-first-name");
   var toastTimer = null;
 
   function openModal() {
@@ -48,7 +48,7 @@
         c.classList.remove("is-active");
       });
       chip.classList.add("is-active");
-      interestField.value = chip.textContent.trim();
+      interestField.value = chip.dataset.enquiryType || "general";
     });
   });
 
@@ -62,14 +62,63 @@
     }, 4000);
   }
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    closeModal();
-    showToast();
-    form.reset();
+  var statusEl = document.getElementById("form-status");
+  var submitBtn = form.querySelector(".submit-btn");
+  var submitBtnLabel = submitBtn.querySelector(".submit-btn__label");
+
+  function setStatus(message, tone) {
+    statusEl.textContent = message || "";
+    statusEl.classList.toggle("is-error", tone === "error");
+  }
+
+  function resetInterestChips() {
     interestChips.forEach(function (c) {
       c.classList.remove("is-active");
     });
-    interestField.value = "";
+    interestField.value = "general";
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var company = document.getElementById("field-company").value.trim();
+    var message = document.getElementById("field-message").value.trim();
+
+    var fields = {
+      firstName: document.getElementById("field-first-name").value.trim(),
+      lastName: document.getElementById("field-last-name").value.trim(),
+      email: document.getElementById("field-email").value.trim(),
+      phone: document.getElementById("field-phone").value.trim(),
+      message: company ? "Company / Venture: " + company + "\n\n" + message : message,
+      enquiryType: interestField.value || "general"
+    };
+
+    window.LeadSubmit.submitLead(fields, {
+      onValidationError: function (missingFieldNames) {
+        setStatus("Please fill in: " + missingFieldNames.join(", ") + ".", "error");
+      },
+      onMissingVerification: function () {
+        setStatus("Please complete the verification challenge.", "error");
+      },
+      onSending: function () {
+        setStatus("Sending…");
+        submitBtn.disabled = true;
+        submitBtnLabel.textContent = "Sending…";
+      },
+      onSuccess: function () {
+        setStatus("");
+        closeModal();
+        showToast();
+        form.reset();
+        resetInterestChips();
+      },
+      onError: function (message) {
+        setStatus(message || "Something went wrong. Please try again.", "error");
+      },
+      onSettled: function () {
+        submitBtn.disabled = false;
+        submitBtnLabel.textContent = "Send request";
+      }
+    });
   });
 })();

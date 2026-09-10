@@ -819,6 +819,12 @@ button {
   letter-spacing: 0.025em;
 }
 
+.form-field label .alt-font {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 .form-field input,
 .form-field textarea {
   width: 100%;
@@ -872,6 +878,22 @@ button {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.cf-turnstile {
+  margin-top: 0.25rem;
+}
+
+.form-status {
+  min-height: 1rem;
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.form-status.is-error {
+  color: #ff6b60;
+}
+
 .submit-btn {
   margin-top: 0.5rem;
   width: 100%;
@@ -890,6 +912,11 @@ button {
 
 .submit-btn:hover {
   background: #f5f5f7;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .submit-btn:active {
