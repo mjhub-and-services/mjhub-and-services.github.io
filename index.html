@@ -15,8 +15,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=20261012-2" />
+  <script>
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("js-reveal");
+    }
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,11 +56,12 @@
   gtag('config', 'G-Q24XN9K10S');
 </script>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ── HERO ─────────────────────────────────────────────── -->
   <section class="hero">
     <img
-      class="hero__img"
+      class="hero__img" data-parallax
       src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1800&h=1200&fit=crop&auto=format"
       alt="Minimal dark workspace"
       loading="eager"
@@ -64,16 +70,25 @@
 
     <div class="topbar">
       <div class="container topbar__inner">
-        <span class="logo">MJ Hub</span>
-        <button type="button" class="btn-pill" data-open-modal>Start a project</button>
+        <span class="logo" data-reveal="drop">MJ Hub</span>
+        <button type="button" class="btn-pill btn-fx" data-open-modal data-reveal="drop">
+          <span class="btn-fill" aria-hidden="true"></span>
+          <span class="btn-roll"><span class="btn-roll__text" data-text="Start a project">Start a project</span></span>
+          <span class="btn-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
 
     <div class="container hero__content">
-      <p class="eyebrow alt-font">Business Consulting Studio · Southampton</p>
-      <h1 class="hero__title">From idea
+      <p class="eyebrow alt-font" data-reveal>Business Consulting Studio · Southampton</p>
+      <h1 class="hero__title" data-reveal>From idea
 to enterprise.</h1>
-      <p class="hero__subtitle alt-font">
+      <p class="hero__subtitle alt-font" data-reveal>
         We build websites and e-commerce platforms, provide hands-on HR consulting, and deliver AI-driven insights and proposals — everything a founder needs to launch and grow.
       </p>
     </div>
@@ -83,8 +98,8 @@ to enterprise.</h1>
   <section class="intro">
     <div class="container intro__inner">
       <div class="intro__grid">
-        <h2 class="intro__heading">Three pillars.<br />One cohesive practice.</h2>
-        <p class="intro__text alt-font">
+        <h2 class="intro__heading" data-reveal>Three pillars.<br />One cohesive practice.</h2>
+        <p class="intro__text alt-font" data-reveal>
           Most consultancies specialise in one dimension — the website, the people, or the numbers.
           We connect all three: bespoke digital platforms, hands-on HR support, and AI-driven insights — then stay engaged for the long run, building lasting connections rather than one-off projects.
         </p>
@@ -95,7 +110,7 @@ to enterprise.</h1>
   <!-- ── FOCUS AREAS ──────────────────────────────────────── -->
   <section class="pillar">
     <img
-      class="pillar__img"
+      class="pillar__img" data-parallax data-reveal="wipe-ltr"
       src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&h=1200&fit=crop&auto=format"
       alt="Dark modern architecture — structure and foundations"
       loading="lazy"
@@ -104,26 +119,26 @@ to enterprise.</h1>
     <div class="pillar__scrim-h is-left"></div>
     <div class="container pillar__content">
       <div class="pillar__box">
-        <p class="pillar__num alt-font">01</p>
-        <h2 class="pillar__title">Websites &amp; E-commerce</h2>
+        <p class="pillar__num alt-font" data-reveal>01</p>
+        <h2 class="pillar__title" data-reveal>Websites &amp; E-commerce</h2>
         <div class="pillar__tags">
-          <span class="tag alt-font">Bespoke Websites</span>
-          <span class="tag alt-font">Website Design</span>
-          <span class="tag alt-font">E-commerce Platforms</span>
-          <span class="tag alt-font">SBC Tech Store</span>
-          <span class="tag alt-font">Hosting Included</span>
+          <span class="tag alt-font" data-reveal>Bespoke Websites</span>
+          <span class="tag alt-font" data-reveal>Website Design</span>
+          <span class="tag alt-font" data-reveal>E-commerce Platforms</span>
+          <span class="tag alt-font" data-reveal>SBC Tech Store</span>
+          <span class="tag alt-font" data-reveal>Hosting Included</span>
         </div>
-        <p class="pillar__desc alt-font">
+        <p class="pillar__desc alt-font" data-reveal>
           From bespoke, made-to-order sites to fully customisable e-commerce platforms — including our own store for the latest single-board computer technology — we design, build, and host it all ourselves. No DIY builder, no Wix or WordPress upkeep — can any other agency guarantee that?
         </p>
       </div>
     </div>
-    <div class="pillar__divider"></div>
+    <div class="pillar__divider" data-reveal="line"></div>
   </section>
 
   <section class="pillar">
     <img
-      class="pillar__img"
+      class="pillar__img" data-parallax data-reveal="wipe-rtl"
       src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&h=1200&fit=crop&auto=format"
       alt="Sleek modern office at night — distribution and reach"
       loading="lazy"
@@ -132,24 +147,24 @@ to enterprise.</h1>
     <div class="pillar__scrim-h is-right"></div>
     <div class="container pillar__content">
       <div class="pillar__box is-right">
-        <p class="pillar__num alt-font">02</p>
-        <h2 class="pillar__title">HR &amp; Financial Guidance</h2>
+        <p class="pillar__num alt-font" data-reveal>02</p>
+        <h2 class="pillar__title" data-reveal>HR &amp; Financial Guidance</h2>
         <div class="pillar__tags">
-          <span class="tag alt-font">HR Advice &amp; Consulting</span>
-          <span class="tag alt-font">Custom HR Platforms</span>
-          <span class="tag alt-font">Financial Guidance &amp; Budgeting</span>
+          <span class="tag alt-font" data-reveal>HR Advice &amp; Consulting</span>
+          <span class="tag alt-font" data-reveal>Custom HR Platforms</span>
+          <span class="tag alt-font" data-reveal>Financial Guidance &amp; Budgeting</span>
         </div>
-        <p class="pillar__desc alt-font">
+        <p class="pillar__desc alt-font" data-reveal>
           Hands-on HR consulting paired with a fully customisable HR platform, plus financial guidance and budgeting to keep the business on track — all built around how your business actually runs, not a one-size-fits-all template.
         </p>
       </div>
     </div>
-    <div class="pillar__divider"></div>
+    <div class="pillar__divider" data-reveal="line"></div>
   </section>
 
   <section class="pillar">
     <img
-      class="pillar__img"
+      class="pillar__img" data-parallax data-reveal="wipe-ltr"
       src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1800&h=1200&fit=crop&auto=format"
       alt="Abstract dark gradient — upward momentum"
       loading="lazy"
@@ -158,49 +173,49 @@ to enterprise.</h1>
     <div class="pillar__scrim-h is-left"></div>
     <div class="container pillar__content">
       <div class="pillar__box">
-        <p class="pillar__num alt-font">03</p>
-        <h2 class="pillar__title">Insights &amp; Proposals</h2>
+        <p class="pillar__num alt-font" data-reveal>03</p>
+        <h2 class="pillar__title" data-reveal>Insights &amp; Proposals</h2>
         <div class="pillar__tags">
-          <span class="tag alt-font">Business Formation &amp; Strategy</span>
-          <span class="tag alt-font">Business Proposal Generation</span>
-          <span class="tag alt-font">AI Growth Analytics</span>
+          <span class="tag alt-font" data-reveal>Business Formation &amp; Strategy</span>
+          <span class="tag alt-font" data-reveal>Business Proposal Generation</span>
+          <span class="tag alt-font" data-reveal>AI Growth Analytics</span>
         </div>
-        <p class="pillar__desc alt-font">
+        <p class="pillar__desc alt-font" data-reveal>
           We help shape your business from the ground up — taking you from idea to the functional daily running of a company. Then we put AI to work analysing your leads, sales, marketing, and people, turning fast, professional proposals and reporting into rapid, confident growth.
         </p>
       </div>
     </div>
-    <div class="pillar__divider"></div>
+    <div class="pillar__divider" data-reveal="line"></div>
   </section>
 
   <!-- ── FOUNDERS ─────────────────────────────────────────── -->
   <section id="about" class="founders">
     <div class="container founders__inner">
-      <p class="section-label alt-font">The founders</p>
+      <p class="section-label alt-font" data-reveal>The founders</p>
       <div class="founders__grid">
         <div class="founder-card">
-          <div class="founder-card__avatar">
+          <div class="founder-card__avatar" data-reveal="avatar">
             <img
               src="assets/images/jessica-williams.png"
               alt="Jessica Williams, Co-Founder"
             />
           </div>
-          <h3 class="founder-card__name">Jessica Williams</h3>
-          <p class="founder-card__role alt-font">Co-Founder &amp; Human Resources Management</p>
-          <p class="founder-card__bio alt-font">
+          <h3 class="founder-card__name" data-reveal>Jessica Williams</h3>
+          <p class="founder-card__role alt-font" data-reveal>Co-Founder &amp; Human Resources Management</p>
+          <p class="founder-card__bio alt-font" data-reveal>
             Jessica leads on people and finance — offering hands-on HR advice and consulting backed by a fully customisable HR platform, plus financial guidance and budgeting to keep the business on track.
           </p>
         </div>
         <div class="founder-card">
-          <div class="founder-card__avatar">
+          <div class="founder-card__avatar" data-reveal="avatar">
             <img
               src="assets/images/marcel-mulders.png"
               alt="Marcel Mulders, Co-Founder"
             />
           </div>
-          <h3 class="founder-card__name">Marcel Mulders</h3>
-          <p class="founder-card__role alt-font">Co-Founder &amp; Website Development</p>
-          <p class="founder-card__bio alt-font">
+          <h3 class="founder-card__name" data-reveal>Marcel Mulders</h3>
+          <p class="founder-card__role alt-font" data-reveal>Co-Founder &amp; Website Development</p>
+          <p class="founder-card__bio alt-font" data-reveal>
             Marcel leads on websites and e-commerce — from bespoke builds and website design to fully customisable e-commerce platforms, including MJ Hub's own store for single-board computer technology.
           </p>
         </div>
@@ -213,20 +228,20 @@ to enterprise.</h1>
     <div class="container value-strip__inner">
       <div class="value-strip__grid">
         <div class="value-item">
-          <p class="value-item__title">Southampton-based</p>
-          <p class="value-item__label alt-font">Working with founders and businesses across the South Coast.</p>
+          <p class="value-item__title" data-reveal>Southampton-based</p>
+          <p class="value-item__label alt-font" data-reveal>Working with founders and businesses across the South Coast.</p>
         </div>
         <div class="value-item">
-          <p class="value-item__title">No cost upfront</p>
-          <p class="value-item__label alt-font">Competitive rates, with nothing due before we start.</p>
+          <p class="value-item__title" data-reveal>No cost upfront</p>
+          <p class="value-item__label alt-font" data-reveal>Competitive rates, with nothing due before we start.</p>
         </div>
         <div class="value-item">
-          <p class="value-item__title">Ongoing support</p>
-          <p class="value-item__label alt-font">We stay engaged after launch — building a lasting connection.</p>
+          <p class="value-item__title" data-reveal>Ongoing support</p>
+          <p class="value-item__label alt-font" data-reveal>We stay engaged after launch — building a lasting connection.</p>
         </div>
         <div class="value-item">
-          <p class="value-item__title">Founder-led</p>
-          <p class="value-item__label alt-font">Direct access to both co-founders, every project.</p>
+          <p class="value-item__title" data-reveal>Founder-led</p>
+          <p class="value-item__label alt-font" data-reveal>Direct access to both co-founders, every project.</p>
         </div>
       </div>
     </div>
@@ -235,27 +250,30 @@ to enterprise.</h1>
   <!-- ── CONTACT CTA ──────────────────────────────────────── -->
   <section id="contact" class="cta">
     <img
-      class="cta__img"
+      class="cta__img" data-parallax data-reveal="zoom"
       src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&h=900&fit=crop&auto=format"
       alt="Technology and ambition"
       loading="lazy"
     />
     <div class="cta__scrim"></div>
     <div class="cta__content">
-      <p class="eyebrow alt-font">Ready to begin</p>
-      <h2 class="cta__heading">Let's build
+      <p class="eyebrow alt-font" data-reveal>Ready to begin</p>
+      <h2 class="cta__heading" data-reveal>Let's build
 something real.</h2>
-      <p class="cta__text alt-font">
+      <p class="cta__text alt-font" data-reveal>
         Tell us where your business is and where you want it to go.
         Competitive rates, nothing due upfront, and ongoing support after launch —
         we respond within one business day.
       </p>
-      <button type="button" class="btn-pill-lg" data-open-modal>
-        Start a project
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
+      <button type="button" class="btn-pill-lg btn-fx" data-open-modal data-reveal>
+        <span class="btn-fill" aria-hidden="true"></span>
+        <span class="btn-roll"><span class="btn-roll__text" data-text="Start a project">Start a project</span></span>
+        <span class="btn-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </span>
       </button>
     </div>
   </section>
@@ -264,12 +282,12 @@ something real.</h2>
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <div>
-        <p class="site-footer__brand">MJ Hub</p>
-        <p class="site-footer__tag alt-font">Business Consulting Studio · Southampton, UK</p>
+        <p class="site-footer__brand" data-reveal>MJ Hub</p>
+        <p class="site-footer__tag alt-font" data-reveal>Business Consulting Studio · Southampton, UK</p>
       </div>
       <div class="site-footer__right">
-        <p class="site-footer__copy alt-font">© 2026 MJ Hub. All rights reserved.</p>
-        <p class="site-footer__credit alt-font">
+        <p class="site-footer__copy alt-font" data-reveal>© 2026 MJ Hub. All rights reserved.</p>
+        <p class="site-footer__credit alt-font" data-reveal>
           <a
             class="contact-footer-credit"
             href="https://marcel-dev-acc.github.io/developer-profile/"
@@ -283,7 +301,7 @@ something real.</h2>
   </footer>
 
   <!-- ── CONTACT MODAL ────────────────────────────────────── -->
-  <div class="modal" id="contact-modal">
+  <div class="modal" id="contact-modal" inert>
     <div class="modal-backdrop" data-close-modal aria-hidden="true"></div>
     <div class="modal-wrap" role="dialog" aria-modal="true" aria-label="Start a project">
       <div class="modal-panel">
@@ -304,55 +322,62 @@ something real.</h2>
           <div class="form-row">
             <div class="form-field">
               <label for="field-first-name">First name</label>
-              <input id="field-first-name" type="text" name="first_name" placeholder="Jane" />
+              <input id="field-first-name" type="text" name="first_name" placeholder="Jane" autocomplete="given-name" required />
             </div>
             <div class="form-field">
               <label for="field-last-name">Last name</label>
-              <input id="field-last-name" type="text" name="last_name" placeholder="Smith" />
+              <input id="field-last-name" type="text" name="last_name" placeholder="Smith" autocomplete="family-name" required />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-field">
               <label for="field-email">Email</label>
-              <input id="field-email" type="email" name="email" placeholder="jane@company.com" />
+              <input id="field-email" type="email" name="email" placeholder="jane@company.com" autocomplete="email" required />
             </div>
             <div class="form-field">
               <label for="field-phone">Phone <span class="alt-font">(optional)</span></label>
-              <input id="field-phone" type="tel" name="phone" placeholder="07700 900000" />
+              <input id="field-phone" type="tel" name="phone" placeholder="07700 900000" autocomplete="tel" />
             </div>
           </div>
 
           <div class="form-field">
             <label for="field-company">Company / Venture</label>
-            <input id="field-company" type="text" name="company" placeholder="Acme Inc. (or leave blank if pre-launch)" />
+            <input id="field-company" type="text" name="company" placeholder="Acme Inc. (or leave blank if pre-launch)" autocomplete="organization" />
           </div>
 
           <div class="form-field">
-            <label>Area of interest</label>
-            <div class="interest-group">
-              <button type="button" class="interest-chip" data-enquiry-type="websites-ecommerce">Websites &amp; E-commerce</button>
-              <button type="button" class="interest-chip" data-enquiry-type="hr-financial-guidance">HR &amp; Financial Guidance</button>
-              <button type="button" class="interest-chip" data-enquiry-type="insights-proposals">Insights &amp; Proposals</button>
-              <button type="button" class="interest-chip" data-enquiry-type="general">All of the above</button>
+            <span class="form-field__label" id="interest-label">Area of interest</span>
+            <div class="interest-group" role="group" aria-labelledby="interest-label">
+              <button type="button" class="interest-chip" data-enquiry-type="Websites &amp; E-commerce" aria-pressed="false">Websites &amp; E-commerce</button>
+              <button type="button" class="interest-chip" data-enquiry-type="HR &amp; Financial Guidance" aria-pressed="false">HR &amp; Financial Guidance</button>
+              <button type="button" class="interest-chip" data-enquiry-type="Insights &amp; Proposals" aria-pressed="false">Insights &amp; Proposals</button>
+              <button type="button" class="interest-chip" data-enquiry-type="All of the above" aria-pressed="false">All of the above</button>
             </div>
-            <input type="hidden" id="field-interest" name="interest" value="general" />
+            <input type="hidden" id="field-interest" name="interest" value="General enquiry" />
           </div>
 
           <div class="form-field">
             <label for="field-message">Tell us about your project</label>
-            <textarea id="field-message" name="message" rows="3" placeholder="Where are you now, and where do you want to go?"></textarea>
+            <textarea id="field-message" name="message" rows="3" required placeholder="Where are you now, and where do you want to go?"></textarea>
           </div>
 
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAEOzS56m0M5xjAFe" data-theme="dark" data-size="flexible"></div>
+          <div class="cf-turnstile" data-theme="dark" data-size="flexible"></div>
 
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 
-          <button type="submit" class="submit-btn">
-            <span class="submit-btn__label">Send request</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
+          <button type="submit" class="submit-btn btn-fx">
+            <span class="btn-fill" aria-hidden="true"></span>
+            <span class="btn-roll submit-btn__label"><span class="btn-roll__text" data-text="Send request">Send request</span></span>
+            <span class="btn-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+            <span class="submit-btn__spinner" aria-hidden="true"></span>
+            <svg class="submit-btn__tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12.5l4.5 4.5L19 7.5" pathLength="1" />
             </svg>
           </button>
         </form>
@@ -361,7 +386,7 @@ something real.</h2>
   </div>
 
   <!-- ── TOAST ────────────────────────────────────────────── -->
-  <div class="toast" id="toast">
+  <div class="toast" id="toast" role="status" aria-live="polite">
     <div class="toast__card">
       <div class="toast__icon">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -376,8 +401,8 @@ something real.</h2>
     </div>
   </div>
 
-  <script src="assets/config.js"></script>
-  <script src="assets/lead-submit.js"></script>
-  <script src="assets/main.js"></script>
+  <script src="assets/config.js?v=20261012-2"></script>
+  <script src="assets/lead-submit.js?v=20261012-2"></script>
+  <script src="assets/main.js?v=20261012-2"></script>
 </body>
 </html>

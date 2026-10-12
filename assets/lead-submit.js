@@ -1,6 +1,50 @@
 (function () {
   "use strict";
 
+  var GENERIC_ERROR = "We couldn't send your request right now. Please try again in a moment.";
+  var widgetId = null;
+
+  // Render the Turnstile widget explicitly so the sitekey comes from
+  // config.js (test key locally, real key elsewhere). api.js loads async with
+  // ?render=explicit, so it may have run before or after this script.
+  function renderTurnstile() {
+    var container = document.querySelector(".cf-turnstile");
+    if (!container || widgetId !== null) {
+      return;
+    }
+    try {
+      widgetId = window.turnstile.render(container, {
+        sitekey: window.SITE_CONFIG.TURNSTILE_SITEKEY,
+        theme: container.getAttribute("data-theme") || "auto",
+        size: container.getAttribute("data-size") || "normal"
+      });
+    } catch (error) {
+      console.warn("Unable to render Turnstile widget.", error);
+    }
+  }
+
+  if (window.turnstile) {
+    renderTurnstile();
+  } else {
+    var apiScript = document.querySelector('script[src*="challenges.cloudflare.com/turnstile/"]');
+    if (apiScript) {
+      apiScript.addEventListener("load", renderTurnstile, { once: true });
+    }
+  }
+
+  function getTurnstileToken() {
+    if (!window.turnstile || widgetId === null) {
+      return "";
+    }
+    return window.turnstile.getResponse(widgetId) || "";
+  }
+
+  function resetTurnstile() {
+    if (window.turnstile && widgetId !== null) {
+      window.turnstile.reset(widgetId);
+    }
+  }
+
   function submitLead(fields, handlers) {
     var missingFields = [
       ["First name", fields.firstName],
@@ -14,9 +58,7 @@
       return Promise.resolve();
     }
 
-    var turnstileToken = window.turnstile && typeof window.turnstile.getResponse === "function"
-      ? window.turnstile.getResponse()
-      : "";
+    var turnstileToken = getTurnstileToken();
 
     if (!turnstileToken) {
       handlers.onMissingVerification();
@@ -30,9 +72,10 @@
       last_name: fields.lastName,
       organisation_id: window.SITE_CONFIG.ORGANISATION_ID,
       email: fields.email,
-      enquiry_type: fields.enquiryType || "general",
+      enquiry_type: fields.enquiryType || "General enquiry",
       message: fields.message,
-      turnstile_token: turnstileToken
+      // The Worker verifies Turnstile from this exact field name.
+      cf_turnstile_response: turnstileToken
     };
 
     if (fields.phone && fields.phone.trim()) {
@@ -41,7 +84,10 @@
 
     return fetch(window.SITE_CONFIG.CONTACT_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(payload)
     })
       .then(function (response) {
@@ -54,22 +100,23 @@
         var body = result.body || {};
 
         if (!response.ok || !body.ok) {
-          var errorMessage = body.message || ("Request failed with status " + response.status);
-          handlers.onError(errorMessage);
+          console.error("Contact request failed", response.status, body);
+          handlers.onError(body.message || GENERIC_ERROR);
           return;
         }
 
         handlers.onSuccess(body.message || "Submitted successfully.");
       })
       .catch(function (error) {
-        var errorMessage = (error && error.message) || "Unexpected network error";
-        handlers.onError(errorMessage);
+        // Network failures (including CORS rejections) land here with a
+        // browser message like "Failed to fetch" — not useful to a visitor.
+        console.error("Contact request failed", error);
+        handlers.onError(GENERIC_ERROR);
       })
       .finally(function () {
         handlers.onSettled();
-        if (window.turnstile && typeof window.turnstile.reset === "function") {
-          window.turnstile.reset();
-        }
+        // Tokens are single-use, so always fetch a fresh one.
+        resetTurnstile();
       });
   }
 
